@@ -1,6 +1,7 @@
 package model.dao;
 
 import db.DB;
+import model.dao.impl.DepartmentDaoJDBC;
 import model.dao.impl.SellerDaoJDBC;
 
 //Classe com operações estáticas para instanciar os DAOs
@@ -9,5 +10,9 @@ public class DaoFactory {
     //A classe DaoFactory expõe um metodo que retorna o tipo da interface, mas internamente ela instancia uma implementação;
     public static SellerDao createSellerDao(){
         return new SellerDaoJDBC(DB.getConnection());
+    }
+
+    public static DepartmentDao createDepartmentDao(){
+        return new DepartmentDaoJDBC(DB.getConnection());
     }
 }
